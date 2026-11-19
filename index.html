@@ -2,6 +2,7 @@
 <html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Golden Bread · Panadería en Santa Cruz de la Sierra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#fff8ec;--card:#fffdf8;--ink:#3b2a14;--mut:#7a6648;--gold:#b87410;--gold2:#e8a93a;--line:#ecdcbc;--ok:#2e7d32;--err:#c62828;--onGold:#fff;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d160c;--card:#2a2013;--ink:#f6e9d0;--mut:#c0a982;--gold:#e8a93a;--gold2:#c8871a;--line:#4a3a22;--onGold:#2a1a05;--ok:#81c784;--err:#ef9a9a;color-scheme:dark}}
@@ -58,13 +59,43 @@ textarea{min-height:70px;resize:vertical}
 .qrph{border:2px dashed #999;border-radius:10px;padding:50px 10px;color:#666}
 .note{background:color-mix(in srgb,var(--gold2) 18%,var(--card));border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
 .ok{text-align:center;font-size:44px}
+
+/* ===== Estilo profesional ===== */
+:root{--bg:#fbf3e4;--card:#fff;--ink:#3a2410;--mut:#7d6a50;--gold:#b5700d;--line:#eadcc0}
+body{font-family:"Poppins",system-ui,-apple-system,sans-serif}
+h1,h2,h3,.logo{font-family:"Playfair Display",Georgia,serif}
+body::before{background:#2b1a0a}
+header{background:#2b1a0a;border-bottom:3px solid #e8a93a;padding:12px 16px}
+.logo{color:#f3c76b;font-size:24px}.logo small{color:#d9c29a;font-family:"Poppins",sans-serif;font-size:10px;letter-spacing:1.5px}
+.cartbtn{background:#e8a93a;color:#2b1a0a;box-shadow:0 2px 8px rgba(0,0,0,.3)}.cartbtn b{background:#2b1a0a;color:#f3c76b}
+.hero{max-width:none;margin:0;padding:46px 20px 42px;background:linear-gradient(135deg,#2b1a0a 0%,#5a3510 60%,#8a5416 100%);color:#fff3da;border-radius:0 0 30px 30px;box-shadow:0 10px 24px rgba(43,26,10,.25)}
+.hero .hi{max-width:640px;margin:auto}
+.tag{display:inline-block;background:rgba(232,169,58,.2);border:1px solid #e8a93a;color:#f3c76b;border-radius:20px;padding:5px 14px;font-size:13px;margin-bottom:14px}
+.hero h1{font-size:32px;line-height:1.2;margin:0 0 10px;color:#fff}
+.hero p{color:#ecd9b4;margin:0 0 6px}.hero .hr{color:#f3c76b;font-weight:600}
+.cta{display:inline-block;margin-top:18px;background:#e8a93a;color:#2b1a0a;text-decoration:none;font-weight:700;padding:13px 28px;border-radius:30px;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.feat{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:20px 16px 4px;max-width:1000px;margin:auto;font-size:14px;color:var(--mut)}
+.feat span{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:7px 14px}
+.st{text-align:center;font-size:26px;margin:22px 16px 0}
+.chips{justify-content:center;flex-wrap:wrap;overflow:visible}
+.chip{border-radius:22px;padding:9px 18px;font-family:inherit}.chip.on{background:#b5700d;border-color:#b5700d;color:#fff}
+.card{border:0;border-radius:18px;box-shadow:0 4px 16px rgba(60,35,10,.12);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(60,35,10,.18)}
+.card h3{font-size:17px}.card .price{font-size:17px;font-weight:600}
+.add{border-radius:12px;background:linear-gradient(180deg,#d28a1a,#b5700d);color:#fff;font-family:inherit;padding:10px}
+.btn{border-radius:14px;background:linear-gradient(180deg,#d28a1a,#b5700d);color:#fff;font-family:inherit}.btn.sec{background:transparent;color:var(--ink)}
+.sheet{border-radius:22px 22px 0 0}
+footer{background:#2b1a0a;color:#d9c29a;padding:28px 16px 120px;line-height:1.8}
+footer a{color:#f3c76b;font-weight:600}
+@media(min-width:700px){.hero h1{font-size:40px}.grid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}}
 </style></head><body>
 <header><div class="logo">Golden Bread<small>PANADERÍA · SANTA CRUZ DE LA SIERRA</small></div>
 <button class="cartbtn" id="cb" aria-label="Abrir carrito">🛒 Carrito <b id="cn">0</b></button></header>
-<section class="hero"><h1>Pan recién horneado, a un toque</h1><p>Elige tus productos, arma tu carrito y paga en efectivo o con QR.</p><p style="margin-top:6px">🕗 Horario de atención: 7:30 a. m. a 9:00 p. m.</p></section>
-<div class="chips" id="chips"></div>
+<section class="hero"><div class="hi"><span class="tag">🌾 Horneado cada día</span><h1>Pan fresco y repostería en Santa Cruz de la Sierra</h1><p>Elige tus productos, paga con QR o efectivo y recíbelos en tu puerta.</p><p class="hr">🕗 Atendemos de 7:30 a. m. a 9:00 p. m.</p><a class="cta" href="#menu">Ver productos</a></div></section>
+<div class="feat"><span>🛵 Delivery</span><span>📱 Pago con QR</span><span>🥖 Siempre fresco</span></div>
+<h2 class="st" id="menu">Nuestros productos</h2><div class="chips" id="chips"></div>
 <main class="grid" id="grid"></main>
-<footer>Golden Bread · Santa Cruz de la Sierra, Bolivia<br>Horario de atención: 7:30 a. m. a 9:00 p. m.</footer>
+<footer><b>Golden Bread</b> · Santa Cruz de la Sierra, Bolivia<br>Horario de atención: 7:30 a. m. a 9:00 p. m.<br><a href="https://wa.me/59167768884" target="_blank" rel="noopener">💬 Escríbenos por WhatsApp</a></footer>
 <div class="bar" id="bar"><button class="btn" id="bb"><span id="bn"></span><span id="bt"></span></button></div>
 <div class="ov" id="ov"><div class="sheet" id="sh"></div></div>
 <script>
